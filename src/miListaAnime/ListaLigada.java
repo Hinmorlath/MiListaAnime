@@ -46,4 +46,29 @@ public class ListaLigada {
         }
     }
     
+    private void primerAnime(Nodo n){
+        Nodo aux = head;
+        head = n;
+        n.setOtroAnime(aux);
+    }
+    
+    private void últimoAnime(Nodo n){
+        Nodo aux = tail;
+        tail = n;
+        aux.setOtroAnime(n);
+    }
+    
+    public void insertarAnime(Nodo anime, int posicion){
+        int i = 1;
+        Nodo actual = head;
+        while(i < posicion - 1){
+         actual = actual.getOtroAnime();
+         i++;
+        }
+        Nodo aux = actual.getOtroAnime();
+        actual.setOtroAnime(anime);
+        actual = anime;
+        actual.setOtroAnime(aux);
+ }
+    
 }
