@@ -19,57 +19,48 @@ public class TestingListaLigada {
         String entrada;
         
         String dato;
+        int opcion;
         char respuesta;
         
         ListaLigada lista = new ListaLigada();
         
-        while(true){//Ciclo infinito
-            System.out.println("Escribe el nombre de un anime:");
-            entrada = bufer.readLine();
-            dato = entrada;
-            lista.add(dato);
-            System.out.println("Se ha agregado el anime a la lista");
-            System.out.println("¿Quieres agregar más animes? (s/n): ");
-            entrada = bufer.readLine();
-            respuesta = entrada.charAt(0);
-            if (respuesta == 'n' || respuesta == 'N')
-                break;
+        System.out.println("1 - Agregar un anime");
+        System.out.println("2 - Agregar una saga");
+        System.out.println("3 - Imprimir el catálogo");
+        System.out.println(" ¿Qué quieres hacer?");
+        entrada = bufer.readLine();
+        opcion = Integer.parseInt(entrada);
+        
+        switch(opcion){
+            case 1: {
+                while(true){
+                System.out.println("Escribe el nombre de un anime:");
+                entrada = bufer.readLine();
+                dato = entrada;
+                lista.add(dato);
+                System.out.println("Se ha agregado el anime a la lista");
+                System.out.println("¿Quieres agregar más animes? (s/n): ");
+                entrada = bufer.readLine();
+                respuesta = entrada.charAt(0);
+                if (respuesta == 'n' || respuesta == 'N')
+                    break;
+                }
+            }
+            break;
+            case 2: {
+                System.out.println("Creación de un archivo de texto");
+                escribirArchivo(fileName);
+            }
+            break;
+            default: System.out.println("Opción no válida");
         }
+        
         
         System.out.println("-------------------------------");
         System.out.println("Contenido del Catálogo: ");
         lista.imprimirCatalogo();
-        /*
-        System.out.println("-----------------------------------------");
-        System.out.println("Inserción de unnuevo nodo");
-        System.out.println("Escribe el elemento a insertar: ");
-        entrada = bufer.readLine();
-        dato = Integer.parseInt(entrada);
-        System.out.println("Escriba la posicion en donde quieres insertar: ");
-        entrada = bufer.readLine();
-        int p = Integer.parseInt(entrada);
-        lista.add(dato, p);
         
-        System.out.println("---------------------------------------");
-        System.out.println("Contenido de la lista ligada: ");
-        lista.printList();*/
         
-        //Otra lista ligada, pero ahora almacenada en String
-        ListaLigada <String> lista2 = new ListaLigada<>();
-        System.out.println("---Creando Nueva lista de String---");
-        for(;;){
-            System.out.println("Escribe datos String para agregar a la lista: ");
-            entrada = bufer.readLine();
-            lista2.add(entrada);
-            System.out.println("¿Quieres insertar más datos?");
-            entrada = bufer.readLine();
-            respuesta = entrada.charAt(0);
-            if(respuesta == 'n' || respuesta == 'N')
-                break;
-        }
-        
-        System.out.println("Contenido de la lista de Strings: ");
-        lista2.imprimirCatalogo();
     }
     
 }

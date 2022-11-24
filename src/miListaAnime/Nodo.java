@@ -15,6 +15,7 @@ public class Nodo<T> {
     public Nodo(T a){
         this.Anime = a;
         this.OtroAnime = null;
+        crearAnime Anime = new crearAnime(a);
     }
 
     public T getAnime() {
