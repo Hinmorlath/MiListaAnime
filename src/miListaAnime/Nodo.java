@@ -8,20 +8,20 @@ package miListaAnime;
  *
  * @author Gateway
  */
-public class Nodo {
-    private int Anime;
+public class Nodo<T> {
+    private T Anime;
     private Nodo OtroAnime;
     
-    public Nodo(int a){
+    public Nodo(T a){
         this.Anime = a;
         this.OtroAnime = null;
     }
 
-    public int getAnime() {
+    public T getAnime() {
         return Anime;
     }
 
-    public void setAnime(int Anime) {
+    public void setAnime(T Anime) {
         this.Anime = Anime;
     }
 
